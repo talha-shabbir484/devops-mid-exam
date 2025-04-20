@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
+        stage('Install Dependencies - Stage 1') {
             steps {
                 script {
                     // Install dependencies (e.g., npm install for Node.js projects)
@@ -36,11 +36,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-    steps {
-        bat 'npm install'
-    }
-}
+        stage('Install Dependencies - Stage 2') {
+            steps {
+                bat 'npm install'
+            }
+        }
     }
 
     post {
@@ -50,6 +50,3 @@ pipeline {
         }
     }
 }
-
-
-
