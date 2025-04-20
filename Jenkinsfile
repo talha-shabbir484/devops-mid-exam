@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     // Archive the test results or any files generated during the build
-                    archiveArtifacts '**/test-*.log'  // Adjust the path based on your files
+                    //archiveArtifacts '**/test-*.log'  // Adjust the path based on your files
                 }
             }
         }
