@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // Install dependencies (e.g., npm install for Node.js projects)
-                    
+                    bat 'npm install'
                 }
             }
         }
