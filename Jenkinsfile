@@ -3,16 +3,16 @@ pipeline {
 
     environment {
         // Define environment variables if needed
-        NODE_HOME = '/usr/local/node'
+        NODE_HOME = 'C:/Program Files/nodejs' // Update the path to where Node.js is installed
         PATH = "${NODE_HOME}/bin:${env.PATH}"
     }
 
     stages {
-        stage('Install Dependencies - Stage 1') {
+        stage('Install Dependencies') {
             steps {
                 script {
                     // Install dependencies (e.g., npm install for Node.js projects)
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                 script {
                     // Run your test script (can be mocked for now)
                     // Example: running a test script or a sample test
-                    sh 'npm test'  // Replace with your actual test command
+                    bat 'npm test'  // Replace with your actual test command
                 }
             }
         }
@@ -33,12 +33,6 @@ pipeline {
                     // Archive the test results or any files generated during the build
                     archiveArtifacts '**/test-*.log'  // Adjust the path based on your files
                 }
-            }
-        }
-
-        stage('Install Dependencies - Stage 2') {
-            steps {
-                bat 'npm install'
             }
         }
     }
